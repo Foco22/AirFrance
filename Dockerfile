@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 8000
 
 # Run the application using Uvicorn, listening on the PORT environment variable or default to 8080
-CMD ["uvicorn", "challenge.api:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["uvicorn", "challenge.api:app", "--host", "0.0.0.0", "--port", "8000"]
+
