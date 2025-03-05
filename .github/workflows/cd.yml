@@ -7,7 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -29,12 +28,3 @@ jobs:
         run: |
           docker build -t $IMAGE_URI .
           docker push $IMAGE_URI
-
-      - name: Deploy to Cloud Run
-        env:
-          IMAGE_URI: northamerica-northeast1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/airfrance/fastapi-app:latest
-        run: |
-          gcloud run deploy my-fastapi-service \
-            --image $IMAGE_URI \
-            --region northamerica-northeast1 \
-            --allow-unauthenticated
