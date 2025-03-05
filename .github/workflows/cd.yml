@@ -44,4 +44,8 @@ jobs:
             --image "$IMAGE_URI" \
             --region northamerica-northeast1 \
             --platform managed \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --timeout 300 \
+            --memory 1Gi \
+            --cpu 2
+
