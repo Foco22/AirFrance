@@ -13,8 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire project to the working directory
 COPY . .
 
-# Expose port 80 for the API
-EXPOSE 80
+# Expose port 8080 (required by Cloud Run)
+EXPOSE 8080
 
-# Run the application using Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+# Run the application using Uvicorn, listening on the PORT environment variable or default to 8080
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
