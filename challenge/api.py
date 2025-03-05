@@ -24,5 +24,5 @@ async def post_predict() -> dict:
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Default to 8080 if PORT isn’t set
+    port = int(os.environ.get("PORT", 8000))  # Default to 8080 if PORT isn’t set
     uvicorn.run(app, host="0.0.0.0", port=port)
