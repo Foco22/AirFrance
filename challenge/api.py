@@ -1,4 +1,6 @@
 import fastapi
+import os
+import uvicorn
 
 app = fastapi.FastAPI()
 
@@ -16,4 +18,11 @@ async def get_health() -> dict:
 
 @app.post("/predict", status_code=200)
 async def post_predict() -> dict:
-    return
+    return {
+        'status': True
+    }
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
